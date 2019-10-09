@@ -1,0 +1,204 @@
+body {
+	/* prevent scrollbars */
+	margin: 0;
+}
+
+.balls {
+	background: linear-gradient(white 50%, grey 100%);
+
+	/* give the children room to position themselves */
+	position: absolute;
+	width: 100%;
+	height: 100%;
+
+	/* prevent scrollbars */
+	overflow: hidden;
+}
+
+.balls > div {
+	/* give the children room to position themselves */
+	position: absolute;
+	height: 100%;
+
+	/* horizontal movement */
+	animation: move-x 32s linear infinite;
+}
+
+.balls > div > div:nth-child(1) {
+	/* shadow */
+	position: absolute;
+	width: 80px;
+	height: 80px;
+	top: 80%;
+
+	/* black circle; anti-alias the edge over the last 5% */
+	background:
+		radial-gradient(closest-side at center, black 95%, transparent 100%);
+	animation:
+		shadow 0.6s ease-out infinite alternate;
+}
+
+.balls > div > div:nth-child(2) {
+	/* ball */
+	position: absolute;
+	width: 120px;
+	height: 120px;
+
+	/* jump and wobble */
+	animation:
+		wobble 0.2s ease-in-out infinite alternate,
+		move-y 0.6s ease-out infinite alternate;
+}
+
+/* animations */
+
+@keyframes wobble {
+	from { transform: translate(-50%, -50%) scale(1.2, 0.8); }
+	to   { transform: translate(-50%, -50%) scale(0.8, 1.2); }
+}
+
+@keyframes move-x {
+	from { left: -110%; }
+	to   { left:  110%; }
+}
+
+@keyframes move-y {
+	from { top: 80%; }
+	to   { top: 40%; }
+}
+
+@keyframes shadow {
+	from { filter: blur(20px); transform: translate(-50%, -50%) translate(  5px, 48px) scaleY(0.2); }
+	to   { filter: blur(80px); transform: translate(-50%, -50%) translate(120px, 48px) scaleY(0.2); }
+}
+
+/* put balls on different horizontal positions */
+
+.balls > div:nth-child(2) {
+	animation-delay: -2s;
+}
+
+.balls > div:nth-child(3) {
+	animation-delay: -3s;
+}
+
+.balls > div:nth-child(4) {
+	animation-delay: -3.5s;
+}
+
+.balls > div:nth-child(5) {
+	animation-delay: -4s;
+}
+
+.balls > div:nth-child(6) {
+	animation-delay: -4.5s;
+}
+
+.balls > div:nth-child(7) {
+	animation-delay: -5s;
+}
+
+.balls > div:nth-child(8) {
+	animation-delay: -5.5s;
+}
+
+.balls > div:nth-child(9) {
+	animation-delay: -6s;
+}
+
+.balls > div:nth-child(10) {
+	animation-delay: -7s;
+}
+
+.balls > div:nth-child(11) {
+	animation-delay: -8s;
+}
+
+.balls > div:nth-child(12) {
+	animation-delay: -8.5s;
+}
+
+.balls > div:nth-child(13) {
+	animation-delay: -9s;
+}
+
+.balls > div:nth-child(14) {
+	animation-delay: -10s;
+}
+
+.balls > div:nth-child(15) {
+	animation-delay: -12s;
+}
+
+.balls > div:nth-child(16) {
+	animation-delay: -15s;
+}
+
+/* put balls on slightly different paths */
+
+.balls > div:nth-child(3n+1) {
+	top: 2%;
+	z-index: 2;
+}
+
+.balls > div:nth-child(3n+2) {
+	top: 4%;
+	z-index: 4;
+}
+
+/* let balls bounce out of phase with each other */
+
+.balls > div:nth-child(5n+1) > div {
+	animation-delay: -0.4s;
+}
+
+.balls > div:nth-child(5n+2) > div {
+	animation-delay: -0.6s;
+}
+
+.balls > div:nth-child(5n+3) > div {
+	animation-delay: -0.2s;
+}
+
+.balls > div:nth-child(5n+4) > div {
+	animation-delay: -0.8s;
+}
+
+/* different ball colors */
+/* (first gradient is the bright spot, second gradient is the ball shape) */
+
+.balls > div:nth-child(6n+1) > div:nth-child(2) {
+	background:
+		radial-gradient(closest-side at 30% 30%, white 0%, transparent 100%),
+		radial-gradient(closest-side at center, purple 95%, transparent 100%);
+}
+
+.balls > div:nth-child(6n+2) > div:nth-child(2) {
+	background:
+		radial-gradient(closest-side at 30% 30%, white 0%, transparent 100%),
+		radial-gradient(closest-side at center, blue 95%, transparent 100%);
+}
+
+.balls > div:nth-child(6n+3) > div:nth-child(2) {
+	background:
+		radial-gradient(closest-side at 30% 30%, white 0%, transparent 100%),
+		radial-gradient(closest-side at center, green 95%, transparent 100%);
+}
+
+.balls > div:nth-child(6n+4) > div:nth-child(2) {
+	background:
+		radial-gradient(closest-side at 30% 30%, white 0%, transparent 100%),
+		radial-gradient(closest-side at center, red 95%, transparent 100%);
+}
+
+.balls > div:nth-child(6n+5) > div:nth-child(2) {
+	background:
+		radial-gradient(closest-side at 30% 30%, white 0%, transparent 100%),
+		radial-gradient(closest-side at center, lime 95%, transparent 100%);
+}
+
+.balls > div:nth-child(6n+6) > div:nth-child(2) {
+	background:
+		radial-gradient(closest-side at 30% 30%, white 0%, transparent 100%),
+		radial-gradient(closest-side at center, aqua 95%, transparent 100%);
+}
